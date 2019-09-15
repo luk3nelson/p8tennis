@@ -34,9 +34,10 @@ function _draw()
 	spr(p.sp,p.x,p.y)
 	spr(3,p.x+8,p.y)
 	rectfill(p.x-1,p.y+9,p.x+p.eng,p.y+9,10)
+	rectfill(p.x-6,p.y,p.x+14,p.y+8,10)
 	--draw ball
 	circfill(b.x,b.y,b.size,15)
-	print(p.spd,64,64,4)
+	print(p.spd,64,64,4) --player speed output
 end
 
 function moveplayer()
@@ -78,10 +79,11 @@ function bounceball()
 	end
 end
 
+--Bounce paddle against player
 function bouncepaddle()
 	if b.x>=p.x and
-		b.x<=p.x+8 and
-		b.y>p.y+1 then
+		b.x<=p.x+14 and
+		b.y>p.y-8 then
 			b.ydir=-b.ydir
 	end
 end
